@@ -1202,10 +1202,8 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="offer__section--text pt-25 mb-75">
-                            <h4 class="offer-title f-800 black-color position-relative mb-40">What Shopmax Offer?</h4>
-                            <p>Lorem Ipsum is simply dummy texting of the printings and typesettingi amet industry. Simply Dummy
-                                has been the industry's standard dummy text ever since 1500s exting of the printing and
-                                typesetting amet industry.</p>
+                            <h4 class="offer-title f-800 black-color position-relative mb-40">How it works</h4>
+                            <p>It couldn't be easier to find your perfect door.</p>
                         </div>
                     </div>
                     <div class="col-xl-6">
@@ -1214,44 +1212,28 @@
                                 <div class="col-xl-6 col-lg-4 col-md-6">
                                     <div class="features-box d-flex align-items-center justify-content-between mb-10">
                                         <div class="features--box__text">
-                                            <h5 class="f-700 pure__black-color"><a href="#">Easy & Free Return</a></h5>
-                                            <p>All Over Worldwide</p>
-                                        </div>
-                                        <div class="features--box__icon">
-                                            <i><img src="img/icon/money-back-gurantee.svg" alt=""></i>
+                                            <h5 class="f-700 pure__black-color"><a href="#">MEASURE YOUR DOOR OPENING</a></h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-4 col-md-6">
                                     <div class="features-box d-flex align-items-center justify-content-between mb-10">
                                         <div class="features--box__text">
-                                            <h5 class="f-700 pure__black-color"><a href="#">Money Guarantee</a></h5>
-                                            <p>Seal Of Trusts</p>
-                                        </div>
-                                        <div class="features--box__icon">
-                                            <i><img src="img/icon/money-back-gurantee.svg" alt=""></i>
+                                            <h5 class="f-700 pure__black-color"><a href="#">SELECT YOUR DOOR SIZE</a></h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-4 col-md-6">
                                     <div class="features-box d-flex align-items-center justify-content-between mb-10">
                                         <div class="features--box__text">
-                                            <h5 class="f-700 pure__black-color"><a href="#">Online Need Helps</a></h5>
-                                            <p>24/7 Online Support</p>
-                                        </div>
-                                        <div class="features--box__icon">
-                                            <i><img src="img/icon/money-back-gurantee.svg" alt=""></i>
+                                            <h5 class="f-700 pure__black-color"><a href="#">FIND YOUR PERFECT DOOR</a></h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 d-lg-none d-xl-block">
                                     <div class="features-box d-flex align-items-center justify-content-between mb-10">
                                         <div class="features--box__text">
-                                            <h5 class="f-700 pure__black-color"><a href="#">Gift Card & Voucher</a></h5>
-                                            <p>Item per Month</p>
-                                        </div>
-                                        <div class="features--box__icon">
-                                            <i><img src="img/icon/money-back-gurantee.svg" alt=""></i>
+                                            <h5 class="f-700 pure__black-color"><a href="#">INSTALL WITH EASE</a></h5>
                                         </div>
                                     </div>
                                 </div>

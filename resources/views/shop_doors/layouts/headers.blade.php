@@ -10,7 +10,7 @@
                     <div class="content--header__middle d-flex align-items-center justify-content-between">
                         <div class="logo--header__middle">
                             <div class="logo">
-                                <a class="logo__link" href="index.html">Doors</a>
+                                <h5 class="f-700 pure__black-color"><a class="logo__link" href="index.html">Doors Store</a></h5>
                             </div>
                         </div>
                         <div class="search--header__middle h1search--header__middle">
