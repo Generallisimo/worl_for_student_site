@@ -44,10 +44,8 @@
                                     <li><a href="#">Internal Doors</a></li>
                                     <li><a href="#">External Front Doors</a></li>
                                     <li><a href="#">Handles</a></li>
-                                    <li><a href="#">Floors</a></li>
                                     <li><a href="#">Frames & Mouldings</a></li>
                                     <li><a href="#">Other Products</a></li>
-                                    <li><a href="#">Offers</a></li>
                                 </ul>
                             </div>
                         </div>

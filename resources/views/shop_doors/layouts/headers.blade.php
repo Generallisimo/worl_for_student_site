@@ -137,10 +137,8 @@
                                         <li><a class="dept__menu--dlink" href="#">Internal Doors</a></li>
                                         <li><a class="dept__menu--dlink" href="#">External Front Doors</a></li>
                                         <li><a class="dept__menu--dlink" href="#">Handles</a></li>
-                                        <li><a class="dept__menu--dlink" href="#">Floors</a></li>
                                         <li><a class="dept__menu--dlink" href="#">Frames & Mouldings</a></li>
                                         <li><a class="dept__menu--dlink" href="#">Other Products</a></li>
-                                        <li><a class="dept__menu--dlink" href="#">Offers</a></li>
                                     </ul>
                                 </li>
                             </ul>
