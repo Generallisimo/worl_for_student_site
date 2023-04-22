@@ -16,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 // делаем группу для магазина
 Route::group(['prefix'=>'shop'], function(){
-    Route::get('/home', function () {
-        return view('shop_doors/index');
-    });
-    Route::get('/auth', function () {
-        return view('shop_doors/auth/index');
-    });
+    // главная страница
+    Route::get('/home', [\App\Http\Controllers\ShopController::class, 'ShopHome'])->name('shop_home');
+    
+    
+    // карзина
+    Route::post('/home', [\App\Http\Controllers\ShopController::class, 'ShopAddCart'])->name('shop_add_cart');
+    Route::put('/home{cart}', [\App\Http\Controllers\ShopController::class, 'ShopUpdateCart'])->name('shop_update_cart');
+    Route::delete('/home{cart}', [\App\Http\Controllers\ShopController::class, 'ShopDeleteCart'])->name('shop_delete_cart');
+    
+    // страница авторизации
+    Route::get('/auth', [\App\Http\Controllers\ShopAuthController::class, 'Auth'])->name('shop_auth');
 });
 
 Route::get('/', function () {
@@ -36,14 +41,14 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('/product', [\App\Http\Controllers\AdminProductController::class, 'AdminProduct'])->name('admin_product');
     // добавление товаров в бд шаблон
     Route::get('/add', [\App\Http\Controllers\AdminProductController::class, 'AdminAddProduct'])->name('admin_add_product');
+    // добавление в БД
+    Route::post('/add', [\App\Http\Controllers\AdminProductController::class, 'AdminAddNewProduct'])->name('admin_create_product');
     // удаления продуктов
     Route::delete('/add{id}', [\App\Http\Controllers\AdminProductController::class, 'AdminDeleteProduct'])->name('admin_delete_product');
     // изменение продукта шаблон
     Route::post('/add{id}', [\App\Http\Controllers\AdminProductController::class, 'AdminUpdateProduct'])->name('admin_update_product');
     //  изменение
     Route::post('/add/{id}', [\App\Http\Controllers\AdminProductController::class, 'AdminEditProduct'])->name('admin_edit_product');
-    // добавление в БД
-    Route::post('/add/new', [\App\Http\Controllers\AdminProductController::class, 'AdminAddNewProduct'])->name('admin_create_product');
 });
 
 

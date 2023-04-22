@@ -25,44 +25,37 @@
                             <div class="cart--header__list">
                                 <ul class="list-inline">
                                     <li><a href="#"><i class="fal fa-user-plus"></i></a></li>
-                                    <li><a class="mini__cart--link" href="#"><i class="fal fa-bags-shopping"><span class="cart__count">3</span></i><span class="cart__amount">$ 3550</span></a></li>
+                                    <li><a class="mini__cart--link" href="#"><i class="fal fa-bags-shopping"><span class="cart__count">{{$quant}}</span></i><span class="cart__amount">$ 3550</span></a></li>
                                 </ul>
                             </div>
                             <div class="mini__cart--box">
                                 <ul>
+                                    @foreach($carts as $cart)
                                     <li class="mb-20">
                                         <div class="cart-image">
-                                            <a href="#"><img src="img/allproducts/cart__thumb__1.jpg" alt=""></a>
+                                            <a href="#"><img src="{{asset('images/'.$cart->product->image)}}" alt=""></a>
                                         </div>
                                         <div class="cart-text">
-                                            <a href="#" class="title f-400 cod__black-color">Pink Jacket</a>
-                                            <span class="cart-price f-400 dusty__gray-color">2 x <span class="price f-800 cod__black-color">$ 78.00</span></span>
+                                            <a href="#" class="title f-400 cod__black-color">{{$cart->product->name}}</a>
+                                            <span class="cart-price f-400 dusty__gray-color">{{$cart->quantety}} x <span class="price f-800 cod__black-color">$ {{$cart->product->price}}</span></span>
                                         </div>
-                                        <div class="del-button">
-                                            <a href="#"><i class="icofont-close-line"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="mb-20">
-                                        <div class="cart-image">
-                                            <a href="#"><img src="img/allproducts/cart__thumb__2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="cart-text">
-                                            <a href="#" class="title f-400 cod__black-color">Silk Glows</a>
-                                            <span class="cart-price f-400 dusty__gray-color">2 x <span class="price f-800 cod__black-color">$ 78.00</span></span>
-                                        </div>
-                                        <div class="del-button">
-                                            <a href="#"><i class="icofont-close-line"></i></a>
-                                        </div>
+                                        <form action="{{route('shop_delete_cart', $cart)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                            <div class="del-button">
+                                                <button type="submit" style="border: none; background:none;">X</button>
+                                            </div>
+                                        </form>    
                                     </li>
                                     <li>
+                                    @endforeach
                                         <div class="total-text d-flex justify-content-between">
                                             <span class="f-800 cod__black-color">Total Bag </span>
-                                            <span class="f-800 cod__black-color">$ 99.00</span>
+                                            <span class="f-800 cod__black-color">$ {{$total}}</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="d-flex justify-content-between">
-                                            <a href="#" class="checkout">Checkout</a>
                                             <a href="#" class="viewcart">View Cart</a>
                                         </div>
                                     </li>
@@ -84,44 +77,37 @@
                             <ul class="list-inline">
                                 <li><a href="#"><i class="fal fa-user-plus"></i></a></li>
                                 <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                <li><a class="mini__cart--link" href="#"><i class="fal fa-bags-shopping"><span class="cart__count">3</span></i><span class="cart__amount">$ 3550</span></a></li>
+                                <li><a class="mini__cart--link" href="#"><i class="fal fa-bags-shopping"><span class="cart__count">{{$quant}}</span></i><span class="cart__amount">$ {{$total}}</span></a></li>
                             </ul>
                         </div>
                         <div class="mini__cart--box">
                             <ul>
+                            @foreach($carts as $cart)
                                 <li class="mb-20">
                                     <div class="cart-image">
-                                        <a href="#"><img src="img/allproducts/cart__thumb__1.jpg" alt=""></a>
+                                        <a href="#"><img src="{{asset('images/'.$cart->product->image)}}" alt=""></a>
                                     </div>
                                     <div class="cart-text">
-                                        <a href="#" class="title f-400 cod__black-color">Pink Jacket</a>
-                                        <span class="cart-price f-400 dusty__gray-color">2 x <span class="price f-800 cod__black-color">$ 78.00</span></span>
+                                        <a href="#" class="title f-400 cod__black-color">{{$cart->product->name}}</a>
+                                        <span class="cart-price f-400 dusty__gray-color">{{$cart->quantety}} x <span class="price f-800 cod__black-color">$ {{$cart->product->price}}</span></span>
                                     </div>
-                                    <div class="del-button">
-                                        <a href="#"><i class="icofont-close-line"></i></a>
-                                    </div>
-                                </li>
-                                <li class="mb-20">
-                                    <div class="cart-image">
-                                        <a href="#"><img src="img/allproducts/cart__thumb__2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-text">
-                                        <a href="#" class="title f-400 cod__black-color">Silk Glows</a>
-                                        <span class="cart-price f-400 dusty__gray-color">2 x <span class="price f-800 cod__black-color">$ 78.00</span></span>
-                                    </div>
-                                    <div class="del-button">
-                                        <a href="#"><i class="icofont-close-line"></i></a>
-                                    </div>
+                                    <form action="{{route('shop_delete_cart', $cart)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                        <div class="del-button">
+                                            <button type="submit" style="border: none; background:none;">X</button>
+                                        </div>
+                                    </form>    
                                 </li>
                                 <li>
+                                @endforeach
                                     <div class="total-text d-flex justify-content-between">
                                         <span class="f-800 cod__black-color">Total Bag </span>
-                                        <span class="f-800 cod__black-color">$ 99.00</span>
+                                        <span class="f-800 cod__black-color">$ {{$total}}</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="d-flex justify-content-between">
-                                        <a href="#" class="checkout">Checkout</a>
                                         <a href="#" class="viewcart">View Cart</a>
                                     </div>
                                 </li>

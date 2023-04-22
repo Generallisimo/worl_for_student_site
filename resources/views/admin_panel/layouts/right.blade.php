@@ -45,7 +45,7 @@
             <a href="{{route('admin_product')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
+                Products
               </p>
             </a>
           </li>
