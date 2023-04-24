@@ -2,6 +2,15 @@
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+      <li>
+          <a href="{{route('shop_home')}}" class="btn btn-primary mr-2">Home Site</a>
+      </li>
+      <li>
+          <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button class="btn btn-danger" style="">{{ __('Log Out') }}</button>
+          </form>
+      </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -29,7 +38,8 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+          <i class="fas fa-user-shield" style="font-size: 30px;"></i>
         </div>
         <div class="info">
           <a href="{{route('admin')}}" class="d-block">Admin</a>
@@ -43,7 +53,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="{{route('admin_product')}}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-shopping-cart mr-1"></i>
               <p>
                 Products
               </p>

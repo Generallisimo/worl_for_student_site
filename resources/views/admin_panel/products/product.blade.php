@@ -60,13 +60,13 @@
                             <form method="POST" action="{{route('admin_update_product', ['id'=>$product->id])}}">
                             @csrf
                             @method('POST')
-                              <button class="btn btn-primary">Up</button>
+                              <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
                             </form>
                             <!-- кнопка удалить -->
                             <form class="ml-2 " method="POST" action="{{route('admin_delete_product', ['id'=>$product->id])}}">
                             @csrf
                             @method('DELETE')
-                              <button class="btn btn-danger">Del</button>
+                              <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </form>
                           </div>
                         </td>

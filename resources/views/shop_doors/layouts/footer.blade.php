@@ -27,9 +27,9 @@
                             </div>
                             <div class="footer-menu h1foote-menu2">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="{{route('shop_home')}}">Home</a></li>
+                                    <li><a href="{{route('shop_about')}}">About Us</a></li>
+                                    <li><a href="{{route('shop_blog')}}">Blog</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -40,13 +40,11 @@
                                 <h6 class="f-800">Shop Category</h6>
                             </div>
                             <div class="footer-menu h1foote-menu2">
+                                @foreach($categories as $category)
                                 <ul>
-                                    <li><a href="#">Internal Doors</a></li>
-                                    <li><a href="#">External Front Doors</a></li>
-                                    <li><a href="#">Handles</a></li>
-                                    <li><a href="#">Frames & Mouldings</a></li>
-                                    <li><a href="#">Other Products</a></li>
+                                    <li><a href="{{route('shop_categories',['id'=>$category->id])}}">{{$category->name}}</a></li>
                                 </ul>
+                                @endforeach
                             </div>
                         </div>
                     </div>

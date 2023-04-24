@@ -28,14 +28,9 @@
                             <div class="all__product--menu mb-30">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link btn gray-bg-btn pure__black-color" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Popular Product</a>
+                                        <a class="nav-item nav-link btn gray-bg-btn pure__black-color active show" id="nav-contact-tab" data-toggle="tab"  role="tab" aria-controls="nav-contact" aria-selected="false">Popular Product</a>
                                     </div>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-3">
-                            <div class="all__product--link text-right mb-30">
-                                <a class="all-link" href="shop-collection.html">Discover All Products<span class="lnr lnr-arrow-right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -55,14 +50,14 @@
                                             <div class="product__single">
                                                 <div class="product__box">
                                                 <div class="product__thumb">
-                                                    <a href="product-details.html" class="img-wrapper">
-                                                        <img class="img" src="{{asset('images/'.$product->image)}}" style="height: 185px;" alt="">
+                                                    <a href="{{route('shop_view', ['product_id'=>$product])}}" class="img-wrapper">
+                                                        <img class="img" src="{{asset('images/'.$product->image)}}" style="height: 305px;" alt="">
                                                         <!-- <img class="img secondary-img" src="img/allproducts/products__thumb__02.jpg" alt=""> -->
                                                     </a>
                                                 </div>
                                                 <div class="product__content--top">
                                                     <span class="cate-name">{{$product->name}}</span>
-                                                    <h6 class="product__title mine__shaft-color f-700 mb-0"><a href="product-details.html">Wireless Audioing Systems Purple Degree</a></h6>
+                                                    <h6 class="product__title mine__shaft-color f-700 mb-0"><a href="product-details.html">{{substr($product->description,0 ,30)}}...</a></h6>
                                                 </div>
                                                 <div class="product__content--rating d-flex justify-content-between">
                                                     <div class="price">
@@ -71,8 +66,16 @@
                                                 </div>
                                                 <!-- передаем продукт -->
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <input type="number" name="quantety" value="1">
-                                                <button class="btn btn-primary" type="submit">Add</button>
+                                                <div class="input-group">
+                                                    <input type="number" name="quantety" class="form-control" value="1" min="1" max="{{ $product->stock }}">
+                                                    <div class="input-group-append">
+                                                        @if(auth()->check())
+                                                        <button class="btn btn-primary btn-my" type="submit">Add to cart</button>
+                                                        @else
+                                                        <a class="btn btn-primary btn-my" href="{{route('shop_auth')}}">Add to cart</a>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                             </div>
                                         </form>
@@ -96,51 +99,20 @@
                         <div class="top__featured--title" style="text-align: center;">
                             <span class="dusty__gray-color text-uppercase">Top Featured</span>
                             <h3 class="pure__black-color mb-120"><span class="f-300"> Top</span></br> <span class="f-800">Categories</span></h3></br>
-                            <a class="grenadier-color" href="shop-collection.html">View All Category</a>
                         </div>
                     </div>
                     <div class="col-xl-10">
                         <div class="categories-active row position-relative">
+                            @foreach($categories as $category)
                             <div class="single-categories col-sm-12">
                                 <div class="categories-box position-relative">
                                     <div class="categories-thumb">
-                                        <a href="#"><img class="img img_pad" src="img/categories/internal_doors.jpg" alt=""></a></br></br>
-                                        <h6 class="f-800 pure__black-color cate-title"><a href="#">Internal Doors</a></h6>
+                                        <a href="{{route('shop_categories', ['id'=>$category->id])}}"><img class="img img_pad" src="{{asset('images/'.$category->image)}}" alt=""></a></br></br>
+                                        <h6 class="f-800 pure__black-color cate-title"><a href="{{route('shop_categories', ['id'=>$category->id])}}">{{$category->name}}</a></h6>
                                     </div>
                                 </div>
                             </div>
-                            <div class="single-categories col-sm-12">
-                                <div class="categories-box position-relative">
-                                    <div class="categories-thumb">
-                                        <a href="#"><img class="img img_pad" src="img/categories/external_front_doors.jpg" alt=""></a></br></br>
-                                        <h6 class="f-800 pure__black-color cate-title"><a href="#">External Front Doors</a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-categories col-sm-12">
-                                <div class="categories-box position-relative">
-                                    <div class="categories-thumb">
-                                        <a href="#"><img class="img img_pad" src="img/categories/handles.jpg" alt=""></a></br></br>
-                                        <h6 class="f-800 pure__black-color cate-title"><a href="#">Handles</a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-categories col-sm-12">
-                                <div class="categories-box position-relative">
-                                    <div class="categories-thumb">
-                                        <a href="#"><img class="img img_pad" src="img/categories/frames_mouldings.jpg" alt=""></a></br></br>
-                                        <h6 class="f-800 pure__black-color cate-title"><a href="#">Frames & Mouldings</a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-categories col-sm-12">
-                                <div class="categories-box position-relative">
-                                    <div class="categories-thumb">
-                                        <a href="#"><img class="img img_pad" src="img/categories/other_products.png" alt=""></a></br></br>
-                                        <h6 class="f-800 pure__black-color cate-title"><a href="#">Other Products</a></h6>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
                         </div>
                     </div>
                 </div>

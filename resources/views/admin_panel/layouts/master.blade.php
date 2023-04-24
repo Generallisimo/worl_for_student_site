@@ -25,6 +25,10 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">

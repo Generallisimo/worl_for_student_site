@@ -3512,8 +3512,16 @@ ul.sub__menu.sub__dept--menu li:hover ul.sub__menu.level2 {
     /* padding: 40px 30px; */
     height: 300px;
 }
-
-
+.btn_shop:hover{
+    color: red;
+    cursor: pointer;
+}
+.btn_s:hover{
+    cursor: pointer;
+}
+.btn-my{
+    background-color: rgb(218, 37, 37);
+}
 
 
 

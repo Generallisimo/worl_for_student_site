@@ -18,23 +18,28 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix'=>'shop'], function(){
     // главная страница
     Route::get('/home', [\App\Http\Controllers\ShopController::class, 'ShopHome'])->name('shop_home');
-    
-    
+    // блог 
+    Route::get('/blog', [\App\Http\Controllers\ShopBlogController::class, 'Blog'])->name('shop_blog');
+    Route::get('/blog_one', [\App\Http\Controllers\ShopBlogController::class, 'BlogViewOne'])->name('shop_blog_view_one');
+    Route::get('/blog_two', [\App\Http\Controllers\ShopBlogController::class, 'BlogViewTwo'])->name('shop_blog_view_two');
+    // о нас
+    Route::get('/about', [\App\Http\Controllers\ShopAboutController::class, 'About'])->name('shop_about');
+    // категории
+    Route::get('/categories{id}', [\App\Http\Controllers\ShopCategoriesController::class, 'Categories'])->name('shop_categories');
+    // продукты
+    Route::get('/category{product_id}', [\App\Http\Controllers\ShopViewController::class, 'ShopView'])->name('shop_view');
+    Route::post('/category{product_id}', [\App\Http\Controllers\ShopViewController::class, 'ShopViewAdd'])->name('shop_view_add');
     // карзина
     Route::post('/home', [\App\Http\Controllers\ShopController::class, 'ShopAddCart'])->name('shop_add_cart');
     Route::put('/home{cart}', [\App\Http\Controllers\ShopController::class, 'ShopUpdateCart'])->name('shop_update_cart');
     Route::delete('/home{cart}', [\App\Http\Controllers\ShopController::class, 'ShopDeleteCart'])->name('shop_delete_cart');
-    
     // страница авторизации
     Route::get('/auth', [\App\Http\Controllers\ShopAuthController::class, 'Auth'])->name('shop_auth');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // создаем группу с перфиксом admin
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['middleware' => ['role:admin'], 'prefix' => 'admin'], function () {
     // мы создали контроллер где прописали путь вывода страницы с остальным фун-ями и теперь выводим страницу
     Route::get('/home', [\App\Http\Controllers\AdminController::class, 'Admin'])->name('admin');
     // вывод товаров в бд
@@ -53,6 +58,9 @@ Route::group(['prefix'=>'admin'], function(){
 
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

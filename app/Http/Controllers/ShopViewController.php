@@ -7,13 +7,13 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class ShopViewController extends Controller
 {
-    //  фун для основной страницы
-    public function ShopHome(){
+    public function ShopView($id){
         $categories = Category::all();
         // вывод продуктов
-        $products = Product::inRandomOrder()->get();
+        $products = Product::findOrFail($id);
+        $prod = Product::inRandomOrder()->limit(4)->get();
         // вывод в карзине товаров
         $carts = Cart::with('product')->where('user_id', auth()->id())->get();
         // cделаем подсчет общей суммы
@@ -23,10 +23,10 @@ class ShopController extends Controller
         }
         // получаем сумму позиций
         $quant = $carts->sum('quantety');
-        return view('shop_doors/index' , compact('products', 'carts', 'total', 'quant', 'categories'));
+
+        return view('shop_doors/categories/product_view' , compact('products', 'carts', 'total', 'quant', 'categories', 'prod'));
     }
-    // фун для добавления в корзину
-    public function ShopAddCart(Request $request){
+    public function ShopViewAdd(Request $request, $id){
         $user_id = auth()->id();
         // создаем переменную которая будет хранить в себе данные чтобы сделать проверку
         $cart = Cart::where([
@@ -44,23 +44,8 @@ class ShopController extends Controller
                 'product_id' => $request->product_id,
                 'quantety' => $request->quantety,
             ]);
-        }
-        return redirect()->back();
-        
-    }
-    // фун для обнавления количества
-    public function ShopUpdateCart(Request $request, $carts){
-        $cart = Cart::findOrFail($carts);
-        $cart->update([
-            'quantety'=>$request->quantety,
-        ]);
-        return redirect()->back();
-    }
-    // фун для удаления 
-    public function ShopDeleteCart($carts){
-        $cart = Cart::findOrFail($carts);
-        $cart->delete();
-
-        return redirect()->back();
+        };
+        $products = Product::findOrFail($id);
+        return redirect()->route('shop_view', ['product_id'=>$products]);
     }
 }
