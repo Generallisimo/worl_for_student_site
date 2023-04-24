@@ -57,11 +57,9 @@ Route::group(['middleware' => ['role:admin'], 'prefix' => 'admin'], function () 
     //  изменение
     Route::post('/add/{id}', [\App\Http\Controllers\AdminProductController::class, 'AdminEditProduct'])->name('admin_edit_product');
 });
-
-
-
+// редирект на главную страницу
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('shop_home');
 });
 
 Route::get('/dashboard', function () {
