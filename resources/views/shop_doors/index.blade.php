@@ -11,10 +11,18 @@
         <!-- hero  -->
         <section class="hero hero__area">
             <div class="hero__active slider-active">
-                <div class="single__hero single-slider hero__bg div_back"  data-background="img/bg/slider_4.jpg"></div>
-                <div class="single__hero single-slider hero__bg div_back"  data-background="img/bg/slider_2.PNG"></div>
-                <div class="single__hero single-slider hero__bg div_back"  data-background="img/bg/slider_3.jpg"></div>
-                <div class="single__hero single-slider hero__bg div_back"  data-background="img/bg/slider_1.png"></div>
+                <div class="carousel-item active">
+                <img class="d-block w-100" src="img/bg/slider_4.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="img/bg/slider_2.PNG" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="img/bg/slider_3.jpg" alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="img/bg/slider_1.png" alt="Third slide">
+                </div>
             </div>
         </section>
         <!-- hero end -->

@@ -152,6 +152,14 @@
                                 <li>
                                     <a href="{{route('shop_blog')}}">Blog</a>
                                 </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link " href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                                    <ul class="dropdown-menu" aria-labelledby="categoryDropdown" style="background-color: #0c1923">
+                                        @foreach($categories as $category)
+                                        <li><a class="dropdown-item" href="{{route('shop_categories', ['id' => $category->id])}}">{{$category->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
