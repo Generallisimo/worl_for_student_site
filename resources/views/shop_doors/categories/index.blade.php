@@ -38,7 +38,7 @@
                                         <h5 class="grenadier-color f-600">$ {{$product->price}}</h5>
                                     </div>
                                     <div class="price">
-                                        <a href="{{route('shop_view', ['product_id'=>$product])}}" >View...</a>
+                                        <a class="a-my" href="{{route('shop_view', ['product_id'=>$product])}}" >View &#8594;</a>
                                     </div>
                                 </div>
                             </div>

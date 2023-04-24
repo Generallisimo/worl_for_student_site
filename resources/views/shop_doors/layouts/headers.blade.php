@@ -68,6 +68,11 @@
                                             <span class="f-800 cod__black-color">$ {{$total}}</span>
                                         </div>
                                     </li>
+                                    <li>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="{{route('shop_cart')}}" class="viewcart">View Cart</a>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

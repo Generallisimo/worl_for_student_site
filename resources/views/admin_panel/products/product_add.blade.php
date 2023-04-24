@@ -34,22 +34,22 @@
                   <div class="form-group">
                     <!-- далее мы подставляем нужные нам значения для создания полей -->
                     <label for="name">Name Product</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Add new name product">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Add new name product" required>
                   </div>
                   <div class="form-group">
                     <label for="description">Description Product</label>
-                    <textarea name="description" class="form-control" id="description" placeholder="Add new description product"></textarea>
+                    <textarea name="description" class="form-control" id="description" placeholder="Add new description product" required></textarea>
                   </div>
                   <div class="form-group">
                     <div class="custom-file">
-                      <input type="file" name="image" class="custom-file-input" id="image">
+                      <input type="file" name="image" class="custom-file-input" id="image" required>
                       <label class="custom-file-label" for="image">Image Product</label>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="price">Price Product</label>
-                    <input type="number" name="price" class="form-control" id="price" placeholder="Add new price product">
+                    <input type="number" name="price" class="form-control" id="price" placeholder="Add new price product" required>
                   </div>
                   <div class="form-group">
                       <label for="category_id">Category For Product</label>

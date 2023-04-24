@@ -35,6 +35,8 @@ Route::group(['prefix'=>'shop'], function(){
     Route::delete('/home{cart}', [\App\Http\Controllers\ShopController::class, 'ShopDeleteCart'])->name('shop_delete_cart');
     // страница авторизации
     Route::get('/auth', [\App\Http\Controllers\ShopAuthController::class, 'Auth'])->name('shop_auth');
+    // корзина
+    Route::get('/cart', [\App\Http\Controllers\ShopCartController::class, 'Cart'])->name('shop_cart');
 });
 
 

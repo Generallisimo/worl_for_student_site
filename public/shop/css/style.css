@@ -3225,7 +3225,7 @@ ul.sub__menu.sub__dept--menu li:hover ul.sub__menu.level2 {
 }
 .shop-details-area .cart-wrapper {
     border: 3px solid #e0e0e0;
-    padding: 30px 35px;
+    padding: 20px 35px 0 35px;
 }
 .shop-details-area .cart-wrapper h6 {
     font-size: 13px;
@@ -3499,7 +3499,7 @@ ul.sub__menu.sub__dept--menu li:hover ul.sub__menu.level2 {
     background-color: #f2f2f2;
 }
 #scrollUp{
-    background-color: red;
+    background-color: #CD3301;
 }
 .div_back{
     padding-top: 250px; 
@@ -3513,17 +3513,33 @@ ul.sub__menu.sub__dept--menu li:hover ul.sub__menu.level2 {
     height: 300px;
 }
 .btn_shop:hover{
-    color: red;
+    color: #CD3301;
     cursor: pointer;
 }
 .btn_s:hover{
     cursor: pointer;
 }
 .btn-my{
-    background-color: rgb(218, 37, 37);
+    background-color: #CD3301;
 }
-
-
+.btn-my1{
+    background-color: #CD3301;
+}
+.btn-my1:hover{
+    background-color: #444;
+}
+.btn-my2{
+    background-color: #444;
+}
+.a-my{
+    color: #CD3301;   
+}
+.a-my:hover{
+    color: #444;
+}
+.cu:hover{
+    cursor: pointer;
+}
 
 
 

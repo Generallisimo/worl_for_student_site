@@ -15,25 +15,25 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 order-2 order-lg-1">
-                        <div class="cart-wrapper">
+                    <div class="cart-wrapper">
                             <h2>Check List</h2>
                             <div class="price mt-15 mb-20">
                                 <h4>$ {{$products->price}}</h4>
                             </div>
                             <form action="{{route('shop_view_add', ['product_id'=>$products])}}" method="POST">
                                 @csrf
-                                <div class="field">
+                                <div class="field ">
                                     <label>Quantity:</label>
                                     <input type="hidden" name="product_id" value="{{$products->id}}">
                                     <input type="number" name="quantety" value="1">
                                 </div>
                                 @if(auth()->check())
-                                <a class="cart-button mt-1"><button type="submit" class="btn_s" style="background: none;border:none;color:white;">Add To Cart</button></a>
+                                <a class="cart-button mt-1 mb-1"><button type="submit" class="btn_s" style="background: none;border:none;color:white;">Add To Cart</button></a>
                                 @else
-                                <a href="{{route('shop_auth')}}" class="cart-button mt-1 btn_s">Add To Cart</a>
+                                <a href="{{route('shop_auth')}}" class="cart-button mt-1 mb-1 btn_s">Add To Cart</a>
                                 @endif
                             </form>
-                                <a href="#" class="buy-button">To My Cart</a>
+                            <a href="{{route('shop_cart')}}" class="buy-button mb-5 ">To My Cart</a>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 order-1 order-lg-2">
