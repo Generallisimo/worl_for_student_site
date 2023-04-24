@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build --outDir=dist"
+        "build": "vite build --outDir=public/dist"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
