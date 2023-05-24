@@ -3540,10 +3540,8 @@ ul.sub__menu.sub__dept--menu li:hover ul.sub__menu.level2 {
 .cu:hover{
     cursor: pointer;
 }
-
-
-
-
-
-
-
+@media (min-width: 992px) {
+    .my_cat {
+      display: none;
+    }
+  }
