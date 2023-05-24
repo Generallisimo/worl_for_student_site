@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ShopViewController extends Controller
@@ -14,6 +15,8 @@ class ShopViewController extends Controller
         // вывод продуктов
         $products = Product::findOrFail($id);
         $prod = Product::inRandomOrder()->limit(4)->get();
+        // выводим комментрии
+        $review = Review::where('product_id', $id)->get();
         // вывод в карзине товаров
         $carts = Cart::with('product')->where('user_id', auth()->id())->get();
         // cделаем подсчет общей суммы
@@ -24,7 +27,7 @@ class ShopViewController extends Controller
         // получаем сумму позиций
         $quant = $carts->sum('quantety');
 
-        return view('shop_doors/categories/product_view' , compact('products', 'carts', 'total', 'quant', 'categories', 'prod'));
+        return view('shop_doors/categories/product_view' , compact('products', 'carts', 'total', 'quant', 'categories', 'prod', 'review'));
     }
     public function ShopViewAdd(Request $request, $id){
         $user_id = auth()->id();

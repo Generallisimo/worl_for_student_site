@@ -100,6 +100,41 @@
                 </div>
             </div>
             <!-- Product end -->
+        <!-- Секция отзывов -->
+        <div class="container mt-5 mb-5">
+            <div style="width: 80%; margin:0 auto; ">
+                <!-- Вывод существующих отзывов -->
+                    @forelse ($review as $item)
+                        <div class="mt-2" style="border: 1px solid #edebeb; border-radius:15px; width:25%; background-color:#edebeb">
+                            <p style="color:black">Отзыв: {{ $item->comment }}</p>
+                            <p style="color:black">Автор: {{ $item->user->name }}</p>
+                        </div>
+                    @empty  
+                        <p style="text-align: center;">нет отзывов, можете оставить</p>
+                    @endforelse
+            </div>
+            <div class="d-flex mt-5" style="width: 80%; margin:0 auto;">
+            @auth
+                <form style="width: 100%;" action="{{ route('review', ['product_id' => $products]) }}" method="POST">
+                    @csrf
+                    <div style="display: grid; "  >
+                        <label for="review_add" >Отзыв:</label>
+                        <input style="height: 70px; border-radius:15px; border:1px solid #edebeb" type="text" name="review_add" placeholder="Введите отзыв...">
+                    </div>
+                    <div class="d-flex mt-3" style="justify-content: end;">
+                        <button type="submit" class="btn btn-danger" style="background-color: #cd3301;">Добавить</button>
+                    </div>
+                </form>
+            @else
+                <div class="d-flex mt-5" style="width: 80%; margin:0 auto; justify-content:center">
+                    <div style="display: grid;">
+                        <p>Чтобы оставить отзыв, войдите в аккаунт </p>
+                        <a href="{{route('shop_auth')}}" class="btn btn-danger" style="background-color: #cd3301;">Войти</a>
+                    </div>
+                </div>
+            </div>
+            @endauth
+        </div>
 
     </main>
     <!-- Main End -->

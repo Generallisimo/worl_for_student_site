@@ -26,9 +26,12 @@ Route::group(['prefix'=>'shop'], function(){
     Route::get('/about', [\App\Http\Controllers\ShopAboutController::class, 'About'])->name('shop_about');
     // категории
     Route::get('/categories{id}', [\App\Http\Controllers\ShopCategoriesController::class, 'Categories'])->name('shop_categories');
+    // поиск по по продуктам
+    Route::get('/search', [\App\Http\Controllers\ShopCategoriesController::class, 'CategoriesSearch'])->name('shop_search');
     // продукты
     Route::get('/category{product_id}', [\App\Http\Controllers\ShopViewController::class, 'ShopView'])->name('shop_view');
     Route::post('/category{product_id}', [\App\Http\Controllers\ShopViewController::class, 'ShopViewAdd'])->name('shop_view_add');
+    Route::post('/{product_id}review', [\App\Http\Controllers\ReviewController::class, 'Review'])->name('review');
     // карзина
     Route::post('/home', [\App\Http\Controllers\ShopController::class, 'ShopAddCart'])->name('shop_add_cart');
     Route::put('/home{cart}', [\App\Http\Controllers\ShopController::class, 'ShopUpdateCart'])->name('shop_update_cart');
@@ -37,6 +40,10 @@ Route::group(['prefix'=>'shop'], function(){
     Route::get('/auth', [\App\Http\Controllers\ShopAuthController::class, 'Auth'])->name('shop_auth');
     // корзина
     Route::get('/cart', [\App\Http\Controllers\ShopCartController::class, 'Cart'])->name('shop_cart');
+    // личный аккаунт
+    Route::get('/account',[\App\Http\Controllers\AccountController::class, 'Account'])->name('account');
+    Route::get('/account_chat',[\App\Http\Controllers\AccountController::class, 'ChatView'])->name('chat_view');
+    Route::post('/account_message',[\App\Http\Controllers\AccountController::class, 'Chat'])->name('chat');
 });
 
 
@@ -56,6 +63,10 @@ Route::group(['middleware' => ['role:admin'], 'prefix' => 'admin'], function () 
     Route::post('/add{id}', [\App\Http\Controllers\AdminProductController::class, 'AdminUpdateProduct'])->name('admin_update_product');
     //  изменение
     Route::post('/add/{id}', [\App\Http\Controllers\AdminProductController::class, 'AdminEditProduct'])->name('admin_edit_product');
+    // chat с пользователями
+    Route::get('/chat', [\App\Http\Controllers\AdminChatController::class, 'AdminChatView'])->name('admin_chat');
+    Route::get('/chat{id}', [\App\Http\Controllers\AdminChatController::class, 'AdminChatID'])->name('admin_chat_view');
+    Route::post('/chat_send{id}', [\App\Http\Controllers\AdminChatController::class, 'AdminSend'])->name('admin_chat_send');
 });
 // редирект на главную страницу
 Route::get('/', function () {

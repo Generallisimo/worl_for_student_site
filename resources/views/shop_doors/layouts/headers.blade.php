@@ -14,10 +14,10 @@
                             </div>
                         </div>
                         <div class="search--header__middle h1search--header__middle">
-                            <form class="search--header__form position-relative" action="#">
+                            <form class="search--header__form position-relative" action="{{route('shop_search')}}" method="GET">
                                 <div class="header--search__box">
-                                    <input class="header--search__query" type="text" placeholder="Search For Products...">
-                                    <button class="header--search__btn"><i class="icofont-search-2"></i></button>
+                                    <input class="header--search__query" type="text" placeholder="Search For Products..." name="search">
+                                    <button class="header--search__btn" type="submit"><i class="icofont-search-2"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -36,6 +36,7 @@
                                                 <button class="btn btn_shop" style="color: black; background:none; border:none; font-size:20px; padding:0;"><i class=" btn_shop fal fa-sign-out"></i></button>
                                             </form>
                                         </li>
+                                        <li><a href="{{route('account')}}"><i class="fal fa-user"></i></a></li>
                                     @else
                                         <li><a href="{{route('shop_auth')}}"><i class="fal fa-sign-in"></i></a></li>
                                     @endif
@@ -152,7 +153,7 @@
                                 <li>
                                     <a href="{{route('shop_blog')}}">Blog</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown my_cat">
                                     <a class="nav-link " href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                                     <ul class="dropdown-menu" aria-labelledby="categoryDropdown" style="background-color: #0c1923">
                                         @foreach($categories as $category)
