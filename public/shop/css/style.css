@@ -3540,8 +3540,19 @@ ul.sub__menu.sub__dept--menu li:hover ul.sub__menu.level2 {
 .cu:hover{
     cursor: pointer;
 }
-@media (min-width: 992px) {
-    .my_cat {
-      display: none;
+.my_div{
+    display: flex;
+}
+@media (max-width: 992px) {
+    .my_div{
+        display: grid;
     }
-  }
+    /* .my_table{
+        display: ;
+    } */
+    }
+@media (min-width: 992px) {
+    .main-menu ul .my_cat{
+        display: none;
+    }
+    }

@@ -22,7 +22,7 @@
 				</tr>
 			</thead>
             @foreach($carts as $cart)
-			<tbody>
+			<tbody class="my_table">
 				<tr>
 					<td>{{$cart->product->name}}</td>
 					<td>{{$cart->product->price}} $</td>
@@ -56,7 +56,10 @@
 			<h4>Total: {{$total}} $</h4>
 		</div>
 		<div class="text-right">
-			<button type="button" class="btn btn-success btn-my2">Buy</button>
+			<form action="{{route('shop_order_buy')}}" method="POST">
+				@csrf
+				<button type="submit" class="btn btn-success btn-my2">Buy</button>
+			</form>
 		</div>
 	</div>
 

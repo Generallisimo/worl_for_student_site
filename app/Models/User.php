@@ -42,4 +42,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+            $chatId = new Chat();
+            $chatId->user_id = $user->id;
+            $chatId->save();
+        });
+    }
 }

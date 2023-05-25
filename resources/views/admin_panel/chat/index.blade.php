@@ -27,25 +27,21 @@
                       <thead>
                       <tr>
                         <th>Name</th>
-                        <!-- <th>Description</th>
-                        <th>Image</th>
-                        <th>Categories</th>
-                        <th>Price</th> -->
-                        <th>More</th>
+                        <!-- <th>More</th> -->
                       </tr>
                       </thead>
                       <tbody>
                       <!-- создадим цикл перебора массива полученного в контроллере из бд -->
                       @foreach($chat as $item)
                       <tr>
-                        <!-- выводим названия стоблцов -->
-                        <td>{{$item->user_id}}</td>
-                        <!-- добавим кнопок -->
-                        <td>
+                        <td class="d-flex" style="justify-content: space-between;">
+                          {{$item->users->name}}
                           <div class="d-flex">
-                              <a href="{{route('admin_chat_view', ['id' => $item->id])}}" class="btn btn-primary"><i class="fa fa-message"></i></a>
+                              <a href="{{route('admin_chat_view', ['id' => $item->id])}}" class="btn btn-primary"><i class="fa fa-comment"></i></a>
                           </div>
                         </td>
+                        <!-- <td> -->
+                        <!-- </td> -->
                       </tr>
                       @endforeach
                       </tbody>

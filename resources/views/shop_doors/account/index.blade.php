@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mb-5">
     <div class="row">
-        <div class="col-md-12 d-flex" style="justify-content: space-around;">
+        <div class="col-md-12 my_div" style="justify-content: space-around;">
             <div class=" section">
                 @if(auth()->user()->hasRole('users'))
                 <div class="section mb-3" style="width: 80%;margin:0 auto; text-align:center">
@@ -57,7 +57,26 @@
             </div>
             <div class="section">
                 <h2>История заказов</h2>
-                <p>Здесь будет отображаться история ваших заказов.</p>
+                @if($order->count() > 0)
+                    @foreach($order as $item)
+                    <!-- <p>{{substr($item->product->desc, 1, 50)}}...</p> -->
+                    <li class="mb-20 d-flex" style="justify-content: space-between; border:1px solid grey; border-radius:10px">
+                        <div class="cart-image">
+                            <a href="#"><img style="width:100px; border-radius:9px; border-bottom-right-radius:0;border-top-right-radius:0;" src="{{asset('images/'.$item->product->image)}}" alt=""></a>
+                        </div>
+                        <div class="cart-text" style="display: grid;">
+                            <a href="#" class="title f-400 cod__black-color">{{$item->product->name}}</a>
+                            <span class="cart-price f-400 dusty__gray-color">Quantity: <span class="price f-800 cod__black-color"> {{$item->quantity}}</span></span>
+                            <span class="cart-price f-400 dusty__gray-color">Total: <span class="price f-800 cod__black-color">$ {{$item->summa}}</span></span>
+                            <span class="cart-price f-400 dusty__gray-color">Status: <span class="price f-800 cod__black-color">{{$item->validates->name}}</span></span>
+                        </div> 
+                    </li>
+                    @endforeach
+                @else
+                    <p>Пока вы еще ничего не покупали...</p>
+                @endif
+            
+            
             </div>
         </div>
     </div>
