@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Chat;
 use App\Models\Message;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,8 +29,11 @@ class AccountController extends Controller
         // // вывод пользователя
         $user = auth()->user();
 
+        $userID = auth()->id();
+        $order = Order::where('user_id', $userID)->get();
+        // dd($order);
         // $chat = Chat::all();
-        return view('shop_doors/account/index', compact('products', 'carts', 'total', 'quant', 'categories', 'user'));
+        return view('shop_doors/account/index', compact('products', 'carts', 'total', 'quant', 'categories', 'user', 'order'));
     }
 
     public function Chat(Request $request){
@@ -45,7 +49,7 @@ class AccountController extends Controller
         // dd($chatID);
         $message = new Message();
         // для обозначния id идентификатора
-        $message->chat_id = $chatID['id'];
+        $message->chat_id = $chatID;
         $message->user_role = $userID;
         $message->message = $request->input('message');
         $message->save();

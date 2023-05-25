@@ -91,8 +91,21 @@
                         <div class="cart--header__list">
                             <ul class="list-inline">
                                 <!-- проверка на авторизацию -->
-
-                                <li><a href="#"><i class="fal fa-heart"></i></a></li>
+                                @if(auth()->check())
+                                    <!-- добавляем админку вход в админку -->
+                                        @if(auth()->user()->hasRole('admin'))
+                                            <li><a href="{{route('admin')}}"><i class="fal fa-user-shield"></i></a></li>
+                                        @endif
+                                        <li>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <button class="btn btn_shop" style="color: black; background:none; border:none; font-size:20px; padding:0;"><i class=" btn_shop fal fa-sign-out"></i></button>
+                                            </form>
+                                        </li>
+                                        <li><a href="{{route('account')}}"><i class="fal fa-user"></i></a></li>
+                                    @else
+                                        <li><a href="{{route('shop_auth')}}"><i class="fal fa-sign-in"></i></a></li>
+                                    @endif
                                 <li><a class="mini__cart--link" href="#"><i class="fal fa-bags-shopping"><span class="cart__count">{{$quant}}</span></i><span class="cart__amount">$ {{$total}}</span></a></li>
                             </ul>
                         </div>
@@ -120,6 +133,11 @@
                                     <div class="total-text d-flex justify-content-between">
                                         <span class="f-800 cod__black-color">Total Bag </span>
                                         <span class="f-800 cod__black-color">$ {{$total}}</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{route('shop_cart')}}" class="viewcart">View Cart</a>
                                     </div>
                                 </li>
                             </ul>

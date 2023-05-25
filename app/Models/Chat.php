@@ -11,7 +11,8 @@ class Chat extends Model
 
     protected $fillable = ['user_id'];
     public function users(){
-        return $this->belongsTo(User::class);
+        // для вывода имени
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function message(){
         return $this->hasMany(Message::class);

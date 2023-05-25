@@ -59,6 +59,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('admin_chat')}}" class="nav-link">
+              <i class="fas fa-comment mr-1"></i>
+              <p>
+                Chat
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin_order')}}" class="nav-link">
+              <i class="fas fa-receipt mr-1"></i>
+              <p>
+                Order
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

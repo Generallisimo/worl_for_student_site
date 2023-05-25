@@ -23,10 +23,11 @@
                 <div class="card">
                   <!-- /.card-header -->
                   <div class="card-body">
+                    <a href="{{route('admin_chat')}}" class="btn mb-3" style="background-color: #0069d9a8; border-radius:10px; color:white">Вернуться</a>
                     <div  style="height: 300px; overflow-y: scroll; border:1px solid grey; border-radius:15px; border-bottom-left-radius:0; border-bottom-right-radius:0">
                         @forelse($message as $mes)
                             @if($mes->user_role == 7)
-                                <div class="mt-2" style="text-align: right; background-color: #ff000096;border-radius:8px; padding: 5px; margin-bottom: 10px;">
+                                <div class="mt-2" style="text-align: right; background-color: #0069d9a8;border-radius:8px; padding: 5px; margin-bottom: 10px;">
                                     <strong></strong> {{ $mes->message }}
                                 </div>
                             @else
@@ -41,7 +42,7 @@
                         <h1 class="mt-5" style="text-align: center;">Пока что нет сообщений...</h1>
                         @endforelse
                     </div>
-                    <div style="height:120px;width: 100%; border:1px solid grey; items-self:end; border-bottom-left-radius:15px; border-bottom-right-radius:15px">
+                    <div style="height:120px;width: 100%; border:1px solid grey; items-self:end; border-bottom-left-radius:15px; border-bottom-right-radius:10px">
                         <form action="{{route('admin_chat_send', ['id'=>$chatID])}}" method="POST" style="display: grid;">
                             @csrf
                             <input type="text" name="message" placeholder="Сообщение..." style="height: 60px;border-top:none;border-left:none; border-right:none;padding-left: 10px;" required>
